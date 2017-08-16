@@ -19,7 +19,7 @@ var bio = {
             $('#skills').append(HTMLskills.replace('%data%', bio.skills));
         }
     }
-}
+};
 var education = {
     schools: [{
         name: "AVS Coll",
@@ -52,7 +52,7 @@ var education = {
             $('#education').append(HTMLschoolStart);
             $('.education-entry:last').append(HTMLschoolName.replace('%data%', education.schools[school].name)).append(HTMLschoolDegree.replace('%data%', education.schools[school].degree)).append(HTMLschoolDates.replace('%data%', education.schools[school].dates)).append(HTMLschoolLocation.replace('%data%', education.schools[school].location)).append(HTMLschoolMajor.replace('%data%', education.schools[school].majors));
         }
-        $('#education').append(HTMLonlineClasses)
+        $('#education').append(HTMLonlineClasses);
         for (var course = 0; course < education.onlineCourses.length; course++) {
             $('#education').append(HTMLschoolStart);
             $('.education-entry:last').append(HTMLonlineTitle.replace('%data%', education.onlineCourses[course].title))
@@ -60,7 +60,7 @@ var education = {
         }
 
     }
-}
+};
 var work = {
     jobs: [{
         employer: 'Humx',
@@ -83,7 +83,7 @@ var work = {
         }
 
     }
-}
+};
 var projectss = {
     projects: [{
             title: 'RKA Construction',
@@ -104,15 +104,15 @@ var projectss = {
             $('#projects').append(HTMLprojectStart);
             $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', projectss.projects[project].title)).append(HTMLprojectDates.replace('%data%', projectss.projects[project].dates)).append(HTMLprojectDescription.replace('%data%', projectss.projects[project].description));
             for (var image = 0; image < projectss.projects[project].images.length; image++) {
-                $('.project-entry:last').append(HTMLprojectImage.replace('%data%', projectss.projects[project].images[image]))
+                $('.project-entry:last').append(HTMLprojectImage.replace('%data%', projectss.projects[project].images[image]));
 
             }
 
         }
     }
-}
+};
 bio.display();
 work.display();
 projectss.display();
 education.display();
-$('#mapDiv').append(googleMap)
+$('#mapDiv').append(googleMap);
