@@ -16,7 +16,13 @@ var bio = {
         $('#topContacts,#footerContacts').prepend(HTMLmobile.replace('%data%', bio.contacts.mobile)).append(HTMLemail.replace('%data%', bio.contacts.email)).append(HTMLgithub.replace('%data%', bio.contacts.github)).append(HTMLtwitter.replace('%data%', bio.contacts.twitter)).append(HTMLlocation.replace('%data%', bio.contacts.location));
         if (bio.skills) {
             $('#header').append(HTMLskillsStart);
-            $('#skills').append(HTMLskills.replace('%data%', bio.skills));
+            var mySkills = '';
+            bio.skills.forEach(function (element) {
+                mySkills += element + ',';
+            });
+            mySkills = mySkills.substr(0, mySkills.length - 1);
+            $('#skills').append(HTMLskills.replace('%data%', mySkills));
+
         }
     }
 };
@@ -84,7 +90,7 @@ var work = {
 
     }
 };
-var projectss = {
+var projects = {
     projects: [{
             title: 'RKA Construction',
             dates: '1-May-2016 to 30-May-2016',
@@ -100,11 +106,11 @@ var projectss = {
         }
     ],
     display: function () {
-        for (var project = 0; project < projectss.projects.length; project++) {
+        for (var project = 0; project < projects.projects.length; project++) {
             $('#projects').append(HTMLprojectStart);
-            $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', projectss.projects[project].title)).append(HTMLprojectDates.replace('%data%', projectss.projects[project].dates)).append(HTMLprojectDescription.replace('%data%', projectss.projects[project].description));
-            for (var image = 0; image < projectss.projects[project].images.length; image++) {
-                $('.project-entry:last').append(HTMLprojectImage.replace('%data%', projectss.projects[project].images[image]));
+            $('.project-entry:last').append(HTMLprojectTitle.replace('%data%', projects.projects[project].title)).append(HTMLprojectDates.replace('%data%', projects.projects[project].dates)).append(HTMLprojectDescription.replace('%data%', projects.projects[project].description));
+            for (var image = 0; image < projects.projects[project].images.length; image++) {
+                $('.project-entry:last').append(HTMLprojectImage.replace('%data%', projects.projects[project].images[image]));
 
             }
 
@@ -113,6 +119,6 @@ var projectss = {
 };
 bio.display();
 work.display();
-projectss.display();
+projects.display();
 education.display();
 $('#mapDiv').append(googleMap);
